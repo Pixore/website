@@ -31,7 +31,6 @@ export const addSpritesHome = sprites => ({
   payload: sprites
 })
 
-
 export const getSpritesHome = () => dispatch => {
   dispatch({})
   return axios.get('api/api/users').then(console.log)

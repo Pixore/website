@@ -1,12 +1,13 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+
 import ducks from './ducks'
 
-const middlewares = [
+let middlewares = [
   applyMiddleware(thunk)
 ]
 
-if (window && window.devToolsExtension) {
+if (process.env.NODE_ENV === 'development' && window.devToolsExtension) {
   middlewares.push(window.devToolsExtension())
 }
 
