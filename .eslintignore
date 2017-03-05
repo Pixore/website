@@ -1,1 +1,2 @@
-polyfill.js
+config/webpackHotDevClient.js
+config/polyfills.js

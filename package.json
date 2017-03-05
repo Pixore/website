@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "http://pixelzstudio.com",
   "scripts": {
-    "server": "node ./index.js",
+    "server": "node ./scripts/start.js",
     "start": "env-cmd ./.env npm run server",
     "lint": "eslint ./src",
     "test:single": "karma start --single-run",
@@ -60,10 +60,7 @@
   },
   "babel": {
     "plugins": [
-      "transform-es2015-destructuring",
-      "syntax-object-rest-spread",
-      "transform-object-rest-spread",
-      "transform-object-assign"
+      "transform-object-rest-spread"
     ],
     "presets": [
       [
@@ -73,6 +70,10 @@
         }
       ],
       "react"
+    ],
+    "ignore": [
+      "config/webpackHotDevClient.js",
+      "node_modules"
     ]
   },
   "keywords": [

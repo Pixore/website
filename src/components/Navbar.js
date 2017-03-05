@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { ModalManager } from 'react-dynamic-modal'
 import Login from '../modals/Login'
@@ -28,15 +28,9 @@ obj.render = function () {
     </div>
     <div className='navbar-right'>
       { profile }
-      <Link className='nav-item btn' to='/editor'>Start drawing</Link>
+      <a className='nav-item btn' href='/editor'>Start drawing</a>
     </div>
   </nav>
-    // <div className='navbar-collapse collapse'>
-    //   <ul>
-    //     <li></li>
-    //     <li></li>
-    //   </ul>
-    // </div>
 }
 
 const Narbar = React.createClass(obj)

@@ -1,5 +1,4 @@
 import './style/main.styl'
-import './polyfill'
 
 window.hasVal = (val) => {
   return typeof val !== 'undefined' && val !== null
