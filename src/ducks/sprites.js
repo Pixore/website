@@ -1,5 +1,5 @@
 // import http from '../utils/http'
-import { cuid } from '../utils/cuid'
+import cuid from '../utils/cuid'
 import { add, update } from '../utils/store'
 
 const ADD_SPRITE = 'ADD_SPRITE'
