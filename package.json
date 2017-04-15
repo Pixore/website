@@ -5,6 +5,7 @@
   "main": "index.js",
   "homepage": "http://pixelzstudio.com",
   "scripts": {
+    "build": "env-cmd ./.env.prod webpack --config ./config/webpack.config.js",
     "server": "node ./scripts/start.js",
     "start": "env-cmd ./.env npm run server",
     "lint": "eslint ./src",
@@ -66,7 +67,7 @@
       [
         "es2015",
         {
-          "modules": "umd"
+          "modules": false
         }
       ],
       "react"
@@ -95,7 +96,6 @@
     "lodash.defaults": "^4.2.0",
     "lodash.omit": "^4.5.0",
     "lodash.pick": "^4.4.0",
-    "morgan": "^1.8.1",
     "normalize.css": "^5.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -150,7 +150,9 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",
-    "webpack": "^2.2.1",
+    "uglify-js": "^2.8.22",
+    "uglifyjs-webpack-plugin": "^0.4.2",
+    "webpack": "^2.3.3",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.17.1"

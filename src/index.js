@@ -29,8 +29,8 @@ import Tooltip from './components/Tooltip'
 import http from './utils/http'
 
 import {
-  setCurrentPalette,
-  addPalettes,
+  // setCurrentPalette,
+  // addPalettes,
   setUser
 } from './ducks'
 
@@ -38,8 +38,8 @@ http.get('/api/palettes').then(function (result) {
   if (result.code !== 0 || !result.data) {
     return
   }
-  store.dispatch(addPalettes(result.data))
-  store.dispatch(setCurrentPalette(0))
+  // store.dispatch(addPalettes(result.data))
+  // store.dispatch(setCurrentPalette(0))
 })
 
 http.get('/api/auth/whoami').then(function (user) {
