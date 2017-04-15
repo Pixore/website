@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
 const { isProd, MAIN_TEMPLATE, APP_PATH, BUILD_PATH, PIXORE_PATH } = require('./environment')
@@ -86,7 +86,7 @@ if (isProd) {
         return module.context && module.context.indexOf('node_modules') !== -1
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({ 
+    new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
     }),
     new UglifyJSPlugin(),
