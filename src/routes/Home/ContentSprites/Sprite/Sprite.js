@@ -3,7 +3,7 @@ import React from 'react'
 export default React.createClass({
   render () {
     return <div className='sprite'>
-      <div className='header'>
+      <div className='pxr_grid__header'>
         <a>
           <img src={this.props.data.user.profileImage} />
         </a>

@@ -1,39 +1,61 @@
-.navbar
+
+
+
+&_navbar
   height 50px
   margin-bottom 30px
-  background #34495e
-  .navbar-right
-    float right
-  .navbar-header
-    display: inline-block
-    .navbar-brand
-      h2
-        margin 0 10px
-        line-height 50px
-  .nav-item
-    display: inline-block
+  background blue-color-1
+  .row
+    justify-content space-between
+  &__left,
+  &__right,
+  &__item
+    display inline-block
+  &__brand
+    h2
+      margin 0 10px
+      line-height 50px
+  &__item
+    text-decoration none
     vertical-align top
     color white
     text-decoration none
     font-size 16px
-    padding 2px 10px
-    margin 0 10px
-    margin-top 11px
     line-height 26px
     font-weight 700
-    &.btn
-      background-image: none
-      background-color #f4d313
-      border-color #f4d313
-      outline none
+    height 100%
+    margin-left: 15px
+  &__profile,
+  &__start-button
+    display: inline-block
+    margin-right 10px
+    margin-top 10px
+    border-radius 4px
+  &__sign-up
+    line-height: 3
+  &__start-button
+    text-decoration: none
+    padding 2px 10px
+    background #f4d313
+    border-color #f4d313
+    outline none
+  &__profile
+    img, span
+      display: inline-block
+    img
+      box-sizing content-box
+      border 2px solid white
+      vertical-align middle
       border-radius 4px
-    &.img
-      //margin-top 0
-      padding 0 0 0 0
-      img
-        box-sizing content-box
-        border 2px solid white
-        vertical-align middle
-        border-radius 4px
-        width 28px
-        height 28px
+      width 28px
+      height 28px
+      margin-right 5px
+    span
+      transform rotate(45deg)
+      content ''
+      border: 3px solid transparent
+      border-bottom: 3px solid white
+      border-right: 3px solid white
+  &__right
+    margin: 0
+    padding: 0
