@@ -1,4 +1,4 @@
-import './style/main.styl'
+import './style/index.styl'
 
 window.hasVal = (val) => {
   return typeof val !== 'undefined' && val !== null

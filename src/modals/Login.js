@@ -35,12 +35,12 @@ obj.render = function () {
     onRequestClose={onRequestClose}
     effect={Effect.SlideFromBottom}
     >
-    <div className='modal-login'>
-      <div className='modal-header'>
-        <span className='title'>Login / Sign up</span>
-        <button className='close' onClick={ModalManager.close}>&times</button>
+    <div className='pxr_modal pxr_modal__login'>
+      <div className='pxr_modal__header'>
+        <span className='pxr_modal__header__title'>Login / Sign up</span>
+        <button className='pxr_modal__header__close' onClick={ModalManager.close}>&times;</button>
       </div>
-      <div className='modal-body'>
+      <div className='pxr_modal__body'>
         <p>
           By connecting you agree to our terms of use.
         </p>

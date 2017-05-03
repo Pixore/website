@@ -24,10 +24,10 @@ const ContentSprites = React.createClass({
     })
   },
   render () {
-    return <div className='content-sprites'>
+    return <div className='pxr-content-sprites'>
       <Grid
         component='ul'
-        className='grid'
+        className='pxr_grid'
         duration={800}
         columnWidth={250}
         gutterWidth={5}
@@ -37,7 +37,7 @@ const ContentSprites = React.createClass({
         {
           this.props.filter.map(index => {
             let sprite = this.props.sprites[index]
-            return <li className='grid-item' key={index}><Sprite data={sprite} /></li>
+            return <li className='pxr_grid__item' key={index}><Sprite data={sprite} /></li>
           })
         }
       </Grid>

@@ -34,21 +34,6 @@ const modules = {
     test: /\.(jade|pug)$/,
     loader: 'pug-loader'
   }, {
-    test: /\.css?$/,
-    loader: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: 'css-loader'
-    })
-  }, {
-    test: /\.styl$/,
-    loader: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: [
-        'css-loader',
-        'stylus-loader'
-      ]
-    })
-  }, {
     test: /\.worker\.js?$/,
     use: [{
       loader: 'worker-loader',
@@ -79,6 +64,23 @@ if (isProd) {
   entry = {
     index: APP_PATH
   }
+  modules.rules.push({
+    test: /\.css?$/,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: 'css-loader'
+    })
+  }, {
+    test: /\.styl$/,
+    loader: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: [
+        'css-loader',
+        'stylus-loader'
+      ]
+    })
+  })
+
   plugins.push(
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -105,6 +107,20 @@ if (isProd) {
     require.resolve('./polyfills'),
     APP_PATH
   ]
+  modules.rules.push({
+    test: /\.css?$/,
+    loaders: [
+      'style-loader',
+      'css-loader'
+    ]
+  }, {
+    test: /\.styl$/,
+    loaders: [
+      'style-loader',
+      'css-loader',
+      'stylus-loader'
+    ]
+  })
   devtool = 'source-map'
   plugins.push(
     new HtmlWebpackPlugin({
@@ -113,10 +129,7 @@ if (isProd) {
       template: MAIN_TEMPLATE
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new WatchMissingNodeModulesPlugin(path.resolve('../node_modules')),
-    new ExtractTextPlugin({
-      filename: '[name].css'
-    })
+    new WatchMissingNodeModulesPlugin(path.resolve('../node_modules'))
   )
 }
 

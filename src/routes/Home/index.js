@@ -5,7 +5,7 @@ import ContentSprites from './ContentSprites/ContentSprites'
 
 const Home = React.createClass({
   render () {
-    return <div className='content-home'>
+    return <div className='pxr_content-home'>
       <Navbar />
       <h1> Home</h1>
       <ContentSprites />

@@ -1,39 +1,55 @@
-import React from 'react'
+import React, {Component} from 'react'
 // import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { ModalManager } from 'react-dynamic-modal'
 import Login from '../modals/Login'
-const obj = {}
+import {Dropdown, Item} from './Dropdown'
 
-obj.displayName = 'Narbar'
+const getNavItem = child => <li className='pxr_navbar__item'>{child}</li>
 
-obj.onLogin = function (evt) {
-  evt.preventDefault()
-  ModalManager.open(<Login />)
-}
+class Navbar extends Component {
+  render () {
+    let profile
+    if (this.props.user) {
+      profile = <li className='pxr_navbar__item'>
+        <Dropdown>
+          <a className='pxr_navbar__profile'>
+            <img src={this.props.user.profileImage} />
+            <span />
+          </a>
+          <Item>@{this.props.user.username}</Item>
+          <Item divider />
+          <Item>Settings</Item>
+          <Item divider />
+          <Item>
+            <a href='/api/auth/logout'>Logout</a>
+          </Item>
+        </Dropdown>
+      </li>
+    } else {
+      profile = getNavItem(
+        <a href='' className='pxr_navbar__sign-up' onClick={this.onLogin}>Login / Sign in</a>
+      )
+    }
 
-obj.render = function () {
-  let profile
-  if (this.props.user) {
-    profile = <div className='nav-item img dropdown'>
-      <img src={this.props.user.profileImage} />
-    </div>
-  } else {
-    profile = <a href='' className='nav-item' onClick={this.onLogin}>Login / Sign in</a>
+    return <nav className='pxr_navbar container'>
+      <div className='row'>
+        <div className='pxr_navbar__left'>
+          <a className='pxr_navbar__brand'><h2>Pixore</h2></a>
+        </div>
+        <ul className='pxr_navbar__right'>
+          {profile}
+          {getNavItem(<a className='pxr_navbar__start-button' href='/editor'>Start drawing</a>)}
+        </ul>
+      </div>
+    </nav>
   }
 
-  return <nav className='navbar'>
-    <div className='navbar-header'>
-      <a className='navbar-brand'><h2>Pixore</h2></a>
-    </div>
-    <div className='navbar-right'>
-      { profile }
-      <a className='nav-item btn' href='/editor'>Start drawing</a>
-    </div>
-  </nav>
+  onLogin (evt) {
+    evt.preventDefault()
+    ModalManager.open(<Login />)
+  }
 }
-
-const Narbar = React.createClass(obj)
 
 function mapStateToProps (state) {
   return {
@@ -41,4 +57,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(Narbar)
+export default connect(mapStateToProps)(Navbar)
