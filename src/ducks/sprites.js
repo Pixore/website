@@ -82,7 +82,7 @@ export const addSprites = sprites => dispatch => {
     type: ADD_SPRITES,
     // array => object
     payload: sprites.reduce((before, current) => {
-      const id = cuid()
+      const {_id: id} = current
       before[id] = {
         ...current,
         id

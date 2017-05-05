@@ -20,12 +20,13 @@ $window.on('keydown.general', evt => {
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
+
 import {Provider} from 'react-redux'
 
 import { store } from './store'
-import Home from './routes/Home'
+
 import Tooltip from './components/Tooltip'
+import Router from './Router'
 import http from './utils/http'
 
 import {
@@ -52,9 +53,7 @@ ReactDOM.render((
   <div className='root rdl-dark'>
     <Tooltip />
     <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route path='/' component={Home} />
-      </Router>
+      <Router />
     </Provider>
   </div>
 ), document.getElementById('root'))

@@ -24,3 +24,35 @@
       padding 0 8px
   &__body
     padding 10px 10px 30px 10px
+
+  &--preview
+    position: absolute
+    background: #fff
+    top: 20px
+    height: calc(100% - 40px)
+    left: 20%
+    right: 20%
+    border: 2px solid #444
+  &__close
+    cursor: pointer
+    outline: 0
+    position: absolute
+    background transparent
+    top 0
+    right 0
+    height 30px
+    border 0
+    opacity 0.4
+    padding 10px
+    font-size: 30px
+    line-height: 0.5
+    &:hover
+      opacity 1
+  &__backdrop
+    z-index: 10
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.5)
