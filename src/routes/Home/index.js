@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Navbar from '../../components/Navbar'
 import ContentSprites from './ContentSprites/ContentSprites'
 
-const Home = React.createClass({
+class Home extends React.Component {
   render () {
     return <div className='pxr_content-home'>
       <Navbar />
@@ -11,7 +11,7 @@ const Home = React.createClass({
       <ContentSprites />
     </div>
   }
-})
+}
 
 function mapStateToProps (state) {
   return {

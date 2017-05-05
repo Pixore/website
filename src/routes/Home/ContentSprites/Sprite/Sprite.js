@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 export default React.createClass({
   render () {
     return <div className='sprite'>
@@ -13,7 +15,9 @@ export default React.createClass({
           <div className='username'>{this.props.data.user.username}</div>
         </span>
       </div>
-      <img src={this.props.data.preview} />
+      <Link to={{pathname: '/s/' + this.props.data._id, state: { modal: true }}}>
+        <img src={this.props.data.preview} />
+      </Link>
       <div className='footer'>
         {this.props.data.name}
       </div>
