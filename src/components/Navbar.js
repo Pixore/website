@@ -32,7 +32,7 @@ class Navbar extends Component {
       )
     }
 
-    return <nav className='pxr_navbar container'>
+    return <nav className='pxr_navbar'>
       <div className='row'>
         <div className='pxr_navbar__left'>
           <a className='pxr_navbar__brand'><h2>Pixore</h2></a>
