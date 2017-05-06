@@ -10,12 +10,23 @@ export class Dropdown extends Component {
     }
 
     this.onClick = this.onClick.bind(this)
+    this.onWindowClick = this.onWindowClick.bind(this)
   }
-  onClick (evt) {
+  toggle () {
     this.setState({
       open: !this.state.open
     })
   }
+  onClick (evt) {
+    evt.stopPropagation()
+    this.toggle()
+    window.removeEventListener('click', this.onWindowClick)
+  }
+  onWindowClick () {
+    window.removeEventListener('click', this.onWindowClick)
+    this.toggle()
+  }
+
   render () {
     const button = this.props.children[0]
     const items = this.props.children.slice(1)
@@ -23,8 +34,11 @@ export class Dropdown extends Component {
       'pxr_dropdown__menu': true,
       'pxr_dropdown__menu--active': this.state.open
     })
-    return <div className='pxr_dropdown'>
-      <div className='pxr_dropdown__action' onClick={this.onClick}>
+    if (this.state.open) {
+      window.addEventListener('click', this.onWindowClick)
+    }
+    return <div className='pxr_dropdown' onClick={this.onClick}>
+      <div className='pxr_dropdown__action'>
         {button}
       </div>
       <ul className={menuClassName}>
