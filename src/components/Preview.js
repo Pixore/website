@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 class Preview extends React.Component {
-
   render () {
     const {
       preview,
@@ -11,14 +10,18 @@ class Preview extends React.Component {
       name
     } = this.props.current
 
-    return <div className='pxr_preview' style={{
-      backgroundImage: `url('${preview}')`
-    }}>
-      <h2>{name}</h2>
-      {/* <div className='pxr_preview__content__image'>
+    return (
+      <div
+        className='pxr_preview'
+        style={{
+          backgroundImage: `url('${preview}')`
+        }}>
+        <h2>{name}</h2>
+        {/* <div className='pxr_preview__content__image'>
         <img className='pxr_preview__image' src={preview} alt={name} />
-      </div> */}
-    </div>
+        </div> */}
+      </div>
+    )
   }
 }
 
@@ -27,8 +30,7 @@ Preview.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     preview: PropTypes.string
-  }).isRequired,
-  id: PropTypes.string.isRequired
+  }).isRequired
 }
 
 export default connect(

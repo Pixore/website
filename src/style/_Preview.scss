@@ -1,0 +1,21 @@
+&_preview {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: calc(100% - 20px);
+  image-rendering: pixelated;
+  margin: 10px;
+
+  h2 {
+    margin: 0;
+  }
+
+  &__image {
+    height: 100%;
+    text-align: center;
+  }
+
+  &__content__image {
+    text-align: center;
+  }
+}

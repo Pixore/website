@@ -14,7 +14,7 @@ function checkStatus (response) {
 }
 
 function request (url, method, body, headers = true) {
-  let promise = axios({
+  const promise = axios({
     url,
     headers: headers ? {
       'Accept': 'application/json',
@@ -45,13 +45,13 @@ export const put = function (url, body) {
 export const upload = function (url, data, files, method) {
   const form = new FormData()
   for (let j = 0; j < files.length; j++) {
-    let element = files[j]
+    const element = files[j]
     form.append('files', element.file, element.name)
   }
   form.append('body', JSON.stringify(data))
-  for (var key of form.values()) {
-    console.log(typeof key)
-  }
+  // for (var key of form.values()) {
+  //   console.log(typeof key)
+  // }
   request(url, method, form, false)
 }
 

@@ -1,0 +1,87 @@
+
+
+
+&_navbar {
+  background: $blue-color-1;
+  height: 50px;
+  margin-bottom: 30px;
+  padding: 0 2rem;
+
+  .row {
+    justify-content: space-between;
+  }
+
+  &__left,
+  &__right,
+  &__item {
+    display: inline-block;
+  }
+
+  &__brand {
+    h2 {
+      line-height: 50px;
+      margin: 0 10px;
+    }
+  }
+
+  &__item {
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 700;
+    height: 100%;
+    line-height: 26px;
+    margin-left: 15px;
+    text-decoration: none;
+    vertical-align: top;
+  }
+
+  &__profile,
+  &__start-button {
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  &__sign-up {
+    line-height: 3;
+  }
+
+  &__start-button {
+    background: $yellow;
+    border-color: $yellow;
+    outline: none;
+    padding: 2px 10px;
+    text-decoration: none;
+  }
+
+  &__profile {
+    img,
+    span {
+      display: inline-block;
+    }
+
+    img {
+      border: 2px solid $main-white;
+      border-radius: 4px;
+      box-sizing: content-box;
+      height: 28px;
+      margin-right: 5px;
+      vertical-align: middle;
+      width: 28px;
+    }
+
+    span {
+      border: 3px solid transparent;
+      border-bottom: 3px solid $main-white;
+      border-right: 3px solid $main-white;
+      content: '';
+      transform: rotate(45deg);
+    }
+  }
+
+  &__right {
+    margin: 0;
+    padding: 0;
+  }
+}

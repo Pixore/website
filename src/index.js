@@ -1,22 +1,6 @@
-import './style/index.styl'
-
-window.hasVal = (val) => {
-  return typeof val !== 'undefined' && val !== null
-}
+import './style/index.scss'
 
 import { $ } from './utils/dom'
-
-window.$ = $
-window.$window = $(window)
-
-const $window = $(window)
-$window.on('keydown.general', evt => {
-  window.CTRL_KEY = evt.ctrlKey
-  window.ALT_KEY = evt.altKey
-}).on('keyup.general', evt => {
-  window.CTRL_KEY = evt.ctrlKey
-  window.ALT_KEY = evt.altKey
-})
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -35,16 +19,32 @@ import {
   setUser
 } from './ducks'
 
+window.hasVal = (val) => {
+  return typeof val !== 'undefined' && val !== null
+}
+
+window.$ = $
+window.$window = $(window)
+
+const $window = $(window)
+$window.on('keydown.general', evt => {
+  window.CTRL_KEY = evt.ctrlKey
+  window.ALT_KEY = evt.altKey
+}).on('keyup.general', evt => {
+  window.CTRL_KEY = evt.ctrlKey
+  window.ALT_KEY = evt.altKey
+})
+
 http.get('/api/palettes').then(function (result) {
-  if (result.code !== 0 || !result.data) {
-    return
-  }
+  // if (result.code !== 0 || !result.data) {
+  //   return
+  // }
   // store.dispatch(addPalettes(result.data))
   // store.dispatch(setCurrentPalette(0))
 })
 
 http.get('/api/auth/whoami').then(function (user) {
-  console.log(user)
+  // console.log(user)
   store.dispatch(setUser(user))
 })
 

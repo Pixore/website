@@ -5,11 +5,13 @@ import ContentSprites from './ContentSprites/ContentSprites'
 
 class Home extends React.Component {
   render () {
-    return <div className='pxr_content-home'>
-      <Navbar />
-      <h1> Home</h1>
-      <ContentSprites />
-    </div>
+    return (
+      <div className='pxr_content-home'>
+        <Navbar />
+        <h1> Home</h1>
+        <ContentSprites />
+      </div>
+    )
   }
 }
 

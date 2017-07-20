@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // import http from '../utils/http'
 import Preview from './Preview'
 
@@ -19,4 +20,9 @@ export default function Modal ({history, match}) {
       </div>
     </div>
   )
+}
+
+Modal.propTypes = {
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +11,9 @@ import Home from './routes/Home'
 import Modal from './components/Modal.js'
 
 class ModalSwitch extends React.Component {
+  static propTypes = {
+    location: PropTypes.any.isRequired
+  }
   constructor (props) {
     super(props)
     this.previousLocation = this.props.location
@@ -43,6 +47,8 @@ class ModalSwitch extends React.Component {
   }
 }
 
-export default () => <Router>
-  <Route component={ModalSwitch} />
-</Router>
+export default () => (
+  <Router>
+    <Route component={ModalSwitch} />
+  </Router>
+)

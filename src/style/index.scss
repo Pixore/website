@@ -1,0 +1,43 @@
+@import '~normalize.css';
+@import '~milligram-sass/src/Grid';
+@import './variables';
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+a {
+  color: $inherit;
+  text-decoration: inherit;
+}
+
+body {
+  background: background-black;
+  color: $text-color;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.pxr {
+  @import './Navbar';
+  @import './Dropdown';
+  @import './Home';
+  @import './Modal';
+  @import './Preview';
+}

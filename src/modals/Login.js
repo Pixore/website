@@ -30,25 +30,27 @@ obj.onLogin = function () {
 
 obj.render = function () {
   const { onRequestClose } = this.props
-  return <Modal
-    style={style}
-    onRequestClose={onRequestClose}
-    effect={Effect.SlideFromBottom}
-    >
-    <div className='pxr_modal pxr_modal__login'>
-      <div className='pxr_modal__header'>
-        <span className='pxr_modal__header__title'>Login / Sign up</span>
-        <button className='pxr_modal__header__close' onClick={ModalManager.close}>&times;</button>
+  return (
+    <Modal
+      style={style}
+      onRequestClose={onRequestClose}
+      effect={Effect.SlideFromBottom}
+      >
+      <div className='pxr_modal pxr_modal__login'>
+        <div className='pxr_modal__header'>
+          <span className='pxr_modal__header__title'>Login / Sign up</span>
+          <button className='pxr_modal__header__close' onClick={ModalManager.close}>&times;</button>
+        </div>
+        <div className='pxr_modal__body'>
+          <p>
+            By connecting you agree to our terms of use.
+          </p>
+          <br />
+          <LoginButton twitter onLogin={this.onLogin} />
+        </div>
       </div>
-      <div className='pxr_modal__body'>
-        <p>
-          By connecting you agree to our terms of use.
-        </p>
-        <br />
-        <LoginButton twitter onLogin={this.onLogin} />
-      </div>
-    </div>
-  </Modal>
+    </Modal>
+  )
 }
 
 const Login = React.createClass(obj)

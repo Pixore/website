@@ -1,0 +1,45 @@
+
+&_dropdown {
+  position: relative;
+
+  &__menu {
+    background: $light-white;
+    border: 1px solid $main-white;
+    border-radius: 4px;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    top: calc(100% + 10px);
+
+    &--active {
+      display: inline-block;
+    }
+
+    &::after {
+      border: 5px solid transparent;
+      border-bottom: 5px solid $light-white;
+      border-right: 5px solid $light-white;
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: -3px;
+      transform: rotate(225deg);
+    }
+
+    li {
+      color: $main-black;
+      font-weight: 100;
+      margin: 0;
+      min-width: 130px;
+      padding: 0 15px;
+      white-space: nowrap;
+    }
+  }
+
+  &__divider {
+    border-bottom: 1px solid $main-white;
+  }
+}

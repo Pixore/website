@@ -73,7 +73,7 @@ const rand = function (max) {
 }
 
 export function getRGBAComponents (color) {
-  let components = color.substring(color.indexOf('(') + 1, color.lastIndexOf(')')).split(/,\s*/)
+  const components = color.substring(color.indexOf('(') + 1, color.lastIndexOf(')')).split(/,\s*/)
   for (let j = 0; j < components.length; j++) {
     components[j] = Number(components[j])
   }
@@ -103,14 +103,13 @@ function componentToHex (color) {
 }
 
 export function rgbToHex (r, g, b) {
-  console.log(r, g, b)
   return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b)
 }
 
 export function unusedColor (usedColors) {
   for (let i = 0; i < uglyColors.length; i++) {
     if (!usedColors[uglyColors[i]]) {
-      let components = uglyColors[i].split('.')
+      const components = uglyColors[i].split('.')
       return {r: components[0], g: components[1], b: components[2]}
     }
   }
@@ -140,13 +139,13 @@ export function unusedColor (usedColors) {
  * @return  Array           The HSL representation
  */
 export function rgbToHsl (r, g, b) {
-  let max, min, h, s, l, d
+  let h, s, d
   r /= 255
   g /= 255
   b /= 255
-  max = Math.max(r, g, b)
-  min = Math.min(r, g, b)
-  l = (max + min) / 2
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  const l = (max + min) / 2
 
   if (max === min) {
     h = s = 0 // achromatic
@@ -281,11 +280,11 @@ export function hsvToRgb (h, s, v) {
   let g
   let b
 
-  let i = Math.floor(h * 6)
-  let f = h * 6 - i
-  let p = v * (1 - s)
-  let q = v * (1 - f * s)
-  let t = v * (1 - (1 - f) * s)
+  const i = Math.floor(h * 6)
+  const f = h * 6 - i
+  const p = v * (1 - s)
+  const q = v * (1 - f * s)
+  const t = v * (1 - (1 - f) * s)
 
   switch (i % 6) {
     case 0: {

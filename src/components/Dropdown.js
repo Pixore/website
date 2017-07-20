@@ -1,8 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export class Dropdown extends Component {
+  static propTypes = {
+    children: PropTypes.any.isRequired
+  }
+
   constructor () {
     super()
     this.state = {
@@ -37,23 +41,32 @@ export class Dropdown extends Component {
     if (this.state.open) {
       window.addEventListener('click', this.onWindowClick)
     }
-    return <div className='pxr_dropdown' onClick={this.onClick}>
-      <div className='pxr_dropdown__action'>
-        {button}
+    return (
+      <div className='pxr_dropdown' onClick={this.onClick}>
+        <div className='pxr_dropdown__action'>
+          {button}
+        </div>
+        <ul className={menuClassName}>
+          {items}
+        </ul>
       </div>
-      <ul className={menuClassName}>
-        {items}
-      </ul>
-    </div>
+    )
   }
 }
 
 const getItemClass = divider => !divider ? 'pxr_dropdown__item' : 'pxr_dropdown__divider'
 
-export const Item = (props) => <li className={getItemClass(props.divider)}>
-  {!props.divider ? props.children : null}
-</li>
+export const Item = (props) => (
+  <li className={getItemClass(props.divider)}>
+    {!props.divider ? props.children : null}
+  </li>
+)
+
+Item.defaultProps = {
+  divider: false
+}
 
 Item.propTypes = {
+  children: PropTypes.any.isRequired,
   divider: PropTypes.bool
 }

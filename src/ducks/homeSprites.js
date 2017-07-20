@@ -33,7 +33,7 @@ export const addSpritesHome = sprites => ({
 
 export const getSpritesHome = () => dispatch => {
   dispatch({})
-  return axios.get('api/api/users').then(console.log)
+  return axios.get('api/api/users')
 }
 
 export default {
