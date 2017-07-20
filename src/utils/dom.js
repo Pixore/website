@@ -1,5 +1,5 @@
 import Selector from './Selector'
-import AppendObject from './AppendObject'
+import AppendObject from './appendObject'
 import createDebug from 'debug'
 
 const debug = createDebug()
