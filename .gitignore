@@ -8,7 +8,7 @@ stats.json
 .env.json
 
 build
-
+.DS_Store
 files
 files-test
 
